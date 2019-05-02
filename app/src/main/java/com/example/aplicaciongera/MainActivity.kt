@@ -14,8 +14,11 @@ class MainActivity : AppCompatActivity() {
         //Vamos a manejar el evento de botón por su ID.
         ingresar.setOnClickListener {
             var i=Intent(this,MenuActivity::class.java)
+
+            TareaGuardarCliente(this,this).execute(null,null,null).get()
             startActivity(i)
 
         }
     }
+
 }

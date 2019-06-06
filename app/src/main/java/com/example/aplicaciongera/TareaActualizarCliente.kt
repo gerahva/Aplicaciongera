@@ -5,12 +5,12 @@ import android.os.AsyncTask
 import android.widget.Toast
 import retrofit2.Retrofit
 import retrofit2.converter.jackson.JacksonConverterFactory
-import kotlinx.android.synthetic.main.layout_guardar.*
+//import kotlinx.android.synthetic.main.layout_guardar.*
 
 
 
-class TareaGuardarCliente(private var ctx: Context?,
-                          private var activity: MenuActivity?)
+class TareaActualizarCliente(private var ctx: Context?,
+                             private var activity: MenuActivity?)
     : AsyncTask<Void, Void, Void>() {
 
     var estatus=Estatus()
@@ -30,19 +30,19 @@ class TareaGuardarCliente(private var ctx: Context?,
     override fun onPreExecute() {
         super.onPreExecute()
         //GENERAMOS UN USUARIO
-        cliente.ident=   activity?.txtident?.text.toString().toInt()
+       // cliente.ident=   activity?.txtident?.text.toString().toInt()
 
-        cliente.nombre= activity?.txtnombre?.text.toString()
+        //cliente.nombre= activity?.txtnombre?.text.toString()
 
-        cliente.mail= activity?.txtmail?.text.toString()
+        //cliente.mail= activity?.txtmail?.text.toString()
 
-        direccion.calle= activity?.txtcalle?.text.toString()
+        //direccion.calle= activity?.txtcalle?.text.toString()
 
-        direccion.cp= activity?.txtcp?.text.toString().toInt()
+        //direccion.cp= activity?.txtcp?.text.toString().toInt()
 
-        direccion.municipio= activity?.txtmuni?.text.toString()
+        //direccion.municipio= activity?.txtmuni?.text.toString()
 
-        cliente.direccion=direccion
+        //cliente.direccion=direccion
     }
 
     override fun doInBackground(vararg p0: Void?): Void? {
@@ -59,7 +59,7 @@ class TareaGuardarCliente(private var ctx: Context?,
       estatus= envio.execute().body()!!
 
         } catch (t: Throwable) {
-println("ERROR"+t.message)
+print("ERROR"+t.message)
         }
         return null
 

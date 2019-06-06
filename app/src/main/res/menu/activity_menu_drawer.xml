@@ -5,13 +5,25 @@
 
     <group android:checkableBehavior="single">
         <item
-                android:id="@+id/nav_camera"
+                android:id="@+id/nav_principal"
                 android:icon="@drawable/ic_menu_camera"
-                android:title="Import"/>
+                android:title="Principal"/>
         <item
-                android:id="@+id/nav_gallery"
+                android:id="@+id/nav_guardar"
                 android:icon="@drawable/ic_menu_gallery"
-                android:title="Gallery"/>
+                android:title="Guardar Cliente"/>
+        <item
+                android:id="@+id/nav_actualizar"
+                android:icon="@drawable/ic_menu_gallery"
+                android:title="Actualizar Cliente"/>
+        <item
+                android:id="@+id/nav_borrar"
+                android:icon="@drawable/ic_menu_gallery"
+                android:title="Borrar Cliente"/>
+        <item
+                android:id="@+id/nav_buscar"
+                android:icon="@drawable/ic_menu_camera"
+                android:title="Buscar Cliente"/>
         <item
                 android:id="@+id/nav_slideshow"
                 android:icon="@drawable/ic_menu_slideshow"

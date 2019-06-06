@@ -8,8 +8,17 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
+import androidx.constraintlayout.widget.ConstraintLayout
 import kotlinx.android.synthetic.main.activity_menu.*
 import kotlinx.android.synthetic.main.app_bar_menu.*
+import kotlinx.android.synthetic.main.content_menu.*
+import kotlinx.android.synthetic.main.layout_guardar.*
+import kotlinx.android.synthetic.main.layout_principal.*
+import kotlinx.android.synthetic.main.layout_actualizar.*
+import kotlinx.android.synthetic.main.layout_borrar.*
+import kotlinx.android.synthetic.main.layout_buscar.*
+
 
 class MenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -18,10 +27,22 @@ class MenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         setContentView(R.layout.activity_menu)
         setSupportActionBar(toolbar)
 
-        fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
+     ocultarTodo()
+
+        layout_principal.visibility=View.VISIBLE
+
+//En este sitio van todos los OnClick de tu menu
+        guardar.setOnClickListener {
+            TareaGuardarCliente(this,this).execute()
         }
+        buscar.setOnClickListener {
+            TareaBuscarCliente(this,this).execute()
+            txtidentbuscar.text=null
+        }
+
+
+
+
 
         val toggle = ActionBarDrawerToggle(
             this, drawer_layout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close
@@ -59,10 +80,31 @@ class MenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         // Handle navigation view item clicks here.
         when (item.itemId) {
-            R.id.nav_camera -> {
+            R.id.nav_principal -> {
                 // Handle the camera action
+                ocultarTodo()
+             layout_principal.visibility=View.VISIBLE
+
+
+
             }
-            R.id.nav_gallery -> {
+            R.id.nav_guardar -> {
+    ocultarTodo()
+                layout_guardar.visibility= View.VISIBLE
+            }
+            R.id.nav_actualizar -> {
+                ocultarTodo()
+                layout_actualizar.visibility= View.VISIBLE
+            }
+            R.id.nav_borrar -> {
+                ocultarTodo()
+                layout_borrar.visibility= View.VISIBLE
+            }
+            R.id.nav_buscar -> {
+                ocultarTodo()
+                layout_buscar.visibility= View.VISIBLE
+                txtNombreBuscar.text=null
+
 
             }
             R.id.nav_slideshow -> {
@@ -81,5 +123,24 @@ class MenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         drawer_layout.closeDrawer(GravityCompat.START)
         return true
+    }
+
+    fun ocultarTodo(){
+
+
+        val principal= layout_principal as ConstraintLayout
+        principal.visibility= View.INVISIBLE
+
+        val guardar_cliente= layout_guardar as ConstraintLayout
+        guardar_cliente.visibility= View.INVISIBLE
+
+        val actualizar_cliente= layout_actualizar as ConstraintLayout
+        actualizar_cliente.visibility= View.INVISIBLE
+
+        val borrar_cliente= layout_borrar as ConstraintLayout
+        borrar_cliente.visibility= View.INVISIBLE
+
+        val buscar_cliente= layout_buscar as ConstraintLayout
+        buscar_cliente.visibility= View.INVISIBLE
     }
 }

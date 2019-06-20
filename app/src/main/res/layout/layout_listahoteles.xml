@@ -4,19 +4,16 @@
                                                    xmlns:tools="http://schemas.android.com/tools"
                                                    android:orientation="vertical"
                                                    android:layout_width="match_parent"
-                                                   android:layout_height="match_parent" android:id="@+id/layout_borrar"
+                                                   android:layout_height="match_parent" android:id="@+id/layout_lista_hoteles"
                                                    android:background="@drawable/borrar"
                                                    android:layout_marginTop="50dp">
-
-    <EditText
+    
+    <Button
+            android:text="CARGAR IMAGEN"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:inputType="number"
-            android:ems="10"
-            android:id="@+id/txtidentborrar"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
-            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="16dp"
-            app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="32dp"
-            android:textAlignment="center"
-            android:fontFamily="@font/cinzel_decorative" android:hint="ESCRIBE EL ID A BORRAR"/>
+            android:id="@+id/cargarimagen" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp" android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent" android:fontFamily="@font/adamina" android:textSize="18sp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

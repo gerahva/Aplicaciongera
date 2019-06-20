@@ -27,6 +27,7 @@
     <include layout="@layout/layout_actualizar"/>
     <include layout="@layout/layout_borrar"/>
     <include layout="@layout/layout_buscar"/>
+    <include layout="@layout/layout_listahoteles"/>
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

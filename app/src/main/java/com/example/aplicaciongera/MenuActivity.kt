@@ -19,6 +19,7 @@ import kotlinx.android.synthetic.main.layout_principal.*
 import kotlinx.android.synthetic.main.layout_actualizar.*
 import kotlinx.android.synthetic.main.layout_borrar.*
 import kotlinx.android.synthetic.main.layout_buscar.*
+import kotlinx.android.synthetic.main.layout_listahoteles.*
 
 
 class MenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -142,6 +143,12 @@ class MenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
 
             }
+
+            R.id.nav_listahoteles->{
+                ocultarTodo()
+
+                layout_lista_hoteles.visibility=View.VISIBLE
+            }
             /*
             R.id.nav_actualizar -> {
                 ocultarTodo()
@@ -169,18 +176,7 @@ class MenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
 
             }
-            R.id.nav_slideshow -> {
 
-            }
-            R.id.nav_manage -> {
-
-            }
-            R.id.nav_share -> {
-
-            }
-            R.id.nav_send -> {
-
-            }
         }
 
         drawer_layout.closeDrawer(GravityCompat.START)
@@ -208,6 +204,10 @@ class MenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         val buscar_cliente = layout_buscar as ConstraintLayout
         buscar_cliente.visibility = View.INVISIBLE
+
+
+        val lista_hoteles=layout_lista_hoteles as ConstraintLayout
+        lista_hoteles.visibility=View.INVISIBLE
     }
 
     override fun onPostResume() {

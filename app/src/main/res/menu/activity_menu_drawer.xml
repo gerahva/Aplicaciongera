@@ -28,7 +28,7 @@
                 android:icon="@drawable/ic_queue_play_next_black_48dp"
                 android:title="Borrar / Actualizar Clientes"/>
         <item
-                android:id="@+id/nav_slideshow"
+                android:id="@+id/nav_listahoteles"
                 android:icon="@drawable/ic_hotel_black_48dp"
                 android:title="Hoteles Disponibles"/>
         <item

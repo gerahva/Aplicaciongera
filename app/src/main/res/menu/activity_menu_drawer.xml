@@ -6,12 +6,14 @@
     <group android:checkableBehavior="single">
         <item
                 android:id="@+id/nav_principal"
-                android:icon="@drawable/ic_menu_camera"
+                android:icon="@drawable/ic_gerita"
                 android:title="Principal"/>
         <item
                 android:id="@+id/nav_guardar"
-                android:icon="@drawable/ic_menu_gallery"
+                android:icon="@drawable/ic_pets_pink_400_24dp"
                 android:title="Guardar Cliente"/>
+
+        <!--
         <item
                 android:id="@+id/nav_actualizar"
                 android:icon="@drawable/ic_menu_gallery"
@@ -20,18 +22,19 @@
                 android:id="@+id/nav_borrar"
                 android:icon="@drawable/ic_menu_gallery"
                 android:title="Borrar Cliente"/>
+                -->
         <item
                 android:id="@+id/nav_buscar"
-                android:icon="@drawable/ic_menu_camera"
-                android:title="Buscar Cliente"/>
+                android:icon="@drawable/ic_queue_play_next_black_48dp"
+                android:title="Borrar / Actualizar Clientes"/>
         <item
                 android:id="@+id/nav_slideshow"
-                android:icon="@drawable/ic_menu_slideshow"
-                android:title="Slideshow"/>
+                android:icon="@drawable/ic_hotel_black_48dp"
+                android:title="Hoteles Disponibles"/>
         <item
                 android:id="@+id/nav_manage"
-                android:icon="@drawable/ic_menu_manage"
-                android:title="Tools"/>
+                android:icon="@drawable/ic_child_care_black_48dp"
+                android:title="Comentarios"/>
     </group>
 
     <item android:title="Communicate">

@@ -2,10 +2,11 @@ package com.example.aplicaciongera
 
 import android.content.Context
 import android.os.AsyncTask
+import android.view.View
 import android.widget.Toast
 import retrofit2.Retrofit
 import retrofit2.converter.jackson.JacksonConverterFactory
-//import kotlinx.android.synthetic.main.layout_guardar.*
+import kotlinx.android.synthetic.main.layout_buscar.*
 
 
 
@@ -29,20 +30,27 @@ class TareaActualizarCliente(private var ctx: Context?,
 
     override fun onPreExecute() {
         super.onPreExecute()
-        //GENERAMOS UN USUARIO
-       // cliente.ident=   activity?.txtident?.text.toString().toInt()
 
-        //cliente.nombre= activity?.txtnombre?.text.toString()
+    cliente?.ident=activity?.txtidentbuscar?.text.toString()?.toInt()
+     cliente?.nombre=   activity?.txtNombreBuscar?.text.toString()
 
-        //cliente.mail= activity?.txtmail?.text.toString()
 
-        //direccion.calle= activity?.txtcalle?.text.toString()
 
-        //direccion.cp= activity?.txtcp?.text.toString().toInt()
+        cliente?.mail=   activity?.txtmailbuscar?.text.toString()
 
-        //direccion.municipio= activity?.txtmuni?.text.toString()
 
-        //cliente.direccion=direccion
+        direccion.calle   =activity?.txtcallebuscar?.text.toString()
+
+
+      direccion.cp=  activity?.txtcpbuscar?.text.toString()?.toInt()
+
+
+      direccion.municipio=  activity?.txtmunibuscar?.text.toString()
+
+        cliente.direccion=direccion
+
+
+
     }
 
     override fun doInBackground(vararg p0: Void?): Void? {
@@ -54,9 +62,10 @@ class TareaActualizarCliente(private var ctx: Context?,
                 .build()
         var servicioCliente=retrofit.create(ClienteService::class.java)
 
-    var  envio= servicioCliente.guardarCliente(cliente)
+    var  envio= servicioCliente.actualizarCliente(cliente)
 
       estatus= envio.execute().body()!!
+            direccion= cliente.direccion!!
 
         } catch (t: Throwable) {
 print("ERROR"+t.message)

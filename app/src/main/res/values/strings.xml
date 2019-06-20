@@ -1,10 +1,10 @@
 <resources>
     <string name="app_name">Aplicacion gera</string>
-    <string name="title_activity_menu">MenuActivity</string>
+    <string name="title_activity_menu">Menu principal</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
-    <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Settings</string>
+    <string name="titulo_de_navegacion">Aplicación para Hoteles</string>
+    <string name="nav_header_subtitle">hotelesfiendly@hotmail.com</string>
+    <string name="nav_header_desc">Navegacion</string>
+    <string name="action_settings">Ajustes</string>
 </resources>

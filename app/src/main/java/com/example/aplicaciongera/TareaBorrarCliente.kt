@@ -2,10 +2,12 @@ package com.example.aplicaciongera
 
 import android.content.Context
 import android.os.AsyncTask
+import android.util.Log
+import android.view.View
 import android.widget.Toast
 import retrofit2.Retrofit
 import retrofit2.converter.jackson.JacksonConverterFactory
-import kotlinx.android.synthetic.main.layout_borrar.*
+import kotlinx.android.synthetic.main.layout_buscar.*
 
 
 
@@ -16,33 +18,34 @@ class TareaBorrarCliente(private var ctx: Context?,
     var estatus=Estatus()
     var cliente=Cliente()
     var direccion=Direccion()
+    var identificador:Int?=null
 
     override fun onPostExecute(result: Void?) {
 
-        //Invocamos nuestra visita del MainActivity
-        //  activity?.findViewById<TextView>(R.id.txtActual)?.text=estacion?.temp_c
-        Toast.makeText(ctx,estatus.mensaje, Toast.LENGTH_LONG).show()
+   Toast.makeText(ctx,estatus.mensaje,Toast.LENGTH_LONG).show()
 
+        activity?.txtNombreBuscar?.setText(null)
+        activity?.txtidentbuscar?.setText(null)
+
+
+        activity?.txtmailbuscar?.setText(null)
+
+
+        activity?.txtcallebuscar?.setText(null)
+
+
+        activity?.txtcpbuscar?.setText(null)
+
+
+        activity?.txtmunibuscar?.setText(null)
 
 
     }
 
     override fun onPreExecute() {
         super.onPreExecute()
-        //GENERAMOS UN USUARIO
-        cliente.ident=   activity?.txtidentborrar?.text.toString().toInt()
+        identificador=activity?.txtidentbuscar?.text.toString().toInt()
 
-        //cliente.nombre= activity?.txtnombre?.text.toString()
-
-        //cliente.mail= activity?.txtmail?.text.toString()
-
-        //direccion.calle= activity?.txtcalle?.text.toString()
-
-        //direccion.cp= activity?.txtcp?.text.toString().toInt()
-
-        ///direccion.municipio= activity?.txtmuni?.text.toString()
-
-        cliente.direccion=direccion
     }
 
     override fun doInBackground(vararg p0: Void?): Void? {
@@ -54,9 +57,10 @@ class TareaBorrarCliente(private var ctx: Context?,
                 .build()
         var servicioCliente=retrofit.create(ClienteService::class.java)
 
-    var  envio= servicioCliente.borrarCliente(1)
+    var  envio= servicioCliente.borrarCliente(identificador)
 
       estatus= envio.execute().body()!!
+
 
         } catch (t: Throwable) {
 print("ERROR"+t.message)

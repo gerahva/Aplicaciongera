@@ -1,7 +1,8 @@
 package com.example.aplicaciongera
 
+import android.net.Uri
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
+import android.util.Log
 import com.google.android.material.navigation.NavigationView
 import androidx.core.view.GravityCompat
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -9,10 +10,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.Button
 import androidx.constraintlayout.widget.ConstraintLayout
 import kotlinx.android.synthetic.main.activity_menu.*
 import kotlinx.android.synthetic.main.app_bar_menu.*
-import kotlinx.android.synthetic.main.content_menu.*
 import kotlinx.android.synthetic.main.layout_guardar.*
 import kotlinx.android.synthetic.main.layout_principal.*
 import kotlinx.android.synthetic.main.layout_actualizar.*
@@ -21,27 +22,62 @@ import kotlinx.android.synthetic.main.layout_buscar.*
 
 
 class MenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
-
+    var cliente: Cliente? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu)
         setSupportActionBar(toolbar)
 
-     ocultarTodo()
 
-        layout_principal.visibility=View.VISIBLE
 
-//En este sitio van todos los OnClick de tu menu
+
+        //Video
+        //Video
+
+        val uri= Uri.parse("https://sierra-guadalupe.org/max.mp4")
+        videoView.setVideoURI(uri)
+        videoView.requestFocus()
+        videoView.start()
+
+        videoView.setOnCompletionListener {
+            videoView.start()
+        }
+
+        ocultarTodo()
+
+        layout_principal.visibility = View.VISIBLE
+
+        //En este sitio van todos los OnClick de tu menu
+
+
+     botonActualizar.visibility=View.INVISIBLE
+     botonBorrar.visibility=View.INVISIBLE
+        // ESTE PARTE VAMOS A GUARDAR EL CLIENTE QUE CAPTUREMOS DE LA INTERFAZ
         guardar.setOnClickListener {
-            TareaGuardarCliente(this,this).execute()
+            TareaGuardarCliente(this, this).execute()
         }
+
+        //EN ESTA PARTE VAMOS A BUSCAR AL CLIENTE Y LO MOSTRAREMOS EN LA INTERFAZ
+
         buscar.setOnClickListener {
-            TareaBuscarCliente(this,this).execute()
-            txtidentbuscar.text=null
+           TareaBuscarCliente(this, this).execute(null,null,null)
+            botonActualizar.visibility=View.VISIBLE
+            botonBorrar.visibility=View.VISIBLE
+
         }
 
 
+//Actualizar
 
+        botonActualizar.setOnClickListener {
+            TareaActualizarCliente(this,this).execute().get()
+        }
+
+        botonBorrar.setOnClickListener {
+            TareaBorrarCliente(this,this).execute().get()
+            botonActualizar.visibility=View.INVISIBLE
+            botonBorrar.visibility=View.INVISIBLE
+        }
 
 
         val toggle = ActionBarDrawerToggle(
@@ -51,6 +87,13 @@ class MenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         toggle.syncState()
 
         nav_view.setNavigationItemSelectedListener(this)
+    }
+
+    fun obtenerCamposParaActualizar(){
+        //CAMPOS QUE APARECERAN EN LA PANTALLA DE LA APP UNA VEZ QUE SEAN BUSCADOS, PARA PROCEDER A BORRARLOS:
+
+
+
     }
 
     override fun onBackPressed() {
@@ -83,27 +126,46 @@ class MenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.nav_principal -> {
                 // Handle the camera action
                 ocultarTodo()
-             layout_principal.visibility=View.VISIBLE
-
+                layout_principal.visibility = View.VISIBLE
 
 
             }
             R.id.nav_guardar -> {
-    ocultarTodo()
-                layout_guardar.visibility= View.VISIBLE
+                ocultarTodo()
+                layout_guardar.visibility = View.VISIBLE
+                txtident.text = null
+                txtnombre.text = null
+                txtmail.text = null
+                txtcalle.text = null
+                txtcp.text = null
+                txtmuni.text = null
+
+
             }
+            /*
             R.id.nav_actualizar -> {
                 ocultarTodo()
-                layout_actualizar.visibility= View.VISIBLE
+                layout_actualizar.visibility = View.VISIBLE
             }
             R.id.nav_borrar -> {
                 ocultarTodo()
-                layout_borrar.visibility= View.VISIBLE
+                layout_borrar.visibility = View.VISIBLE
+                txtidentborrar.text = null
+                txtnombreborrar.text = null
+                txtmailborrar.text = null
+                txtcalleborrar.text = null
+                txtcpborrar.text = null
+                txtmuniborrar.text = null
             }
+            */
             R.id.nav_buscar -> {
                 ocultarTodo()
-                layout_buscar.visibility= View.VISIBLE
-                txtNombreBuscar.text=null
+                layout_buscar.visibility = View.VISIBLE
+                txtNombreBuscar.text = null
+                txtmailbuscar.text = null
+                txtcallebuscar.text = null
+                txtcpbuscar.text = null
+                txtmunibuscar.text = null
 
 
             }
@@ -125,22 +187,39 @@ class MenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         return true
     }
 
-    fun ocultarTodo(){
+    fun ocultarTodo() {
 
 
-        val principal= layout_principal as ConstraintLayout
-        principal.visibility= View.INVISIBLE
+        botonActualizar.visibility=View.INVISIBLE
+        botonBorrar.visibility=View.INVISIBLE
 
-        val guardar_cliente= layout_guardar as ConstraintLayout
-        guardar_cliente.visibility= View.INVISIBLE
 
-        val actualizar_cliente= layout_actualizar as ConstraintLayout
-        actualizar_cliente.visibility= View.INVISIBLE
+        val principal = layout_principal as ConstraintLayout
+        principal.visibility = View.INVISIBLE
 
-        val borrar_cliente= layout_borrar as ConstraintLayout
-        borrar_cliente.visibility= View.INVISIBLE
+        val guardar_cliente = layout_guardar as ConstraintLayout
+        guardar_cliente.visibility = View.INVISIBLE
 
-        val buscar_cliente= layout_buscar as ConstraintLayout
-        buscar_cliente.visibility= View.INVISIBLE
+        val actualizar_cliente = layout_actualizar as ConstraintLayout
+        actualizar_cliente.visibility = View.INVISIBLE
+
+        val borrar_cliente = layout_borrar as ConstraintLayout
+        borrar_cliente.visibility = View.INVISIBLE
+
+        val buscar_cliente = layout_buscar as ConstraintLayout
+        buscar_cliente.visibility = View.INVISIBLE
+    }
+
+    override fun onPostResume() {
+        super.onPostResume()
+        val uri= Uri.parse("https://sierra-guadalupe.org/max.mp4")
+        videoView.setVideoURI(uri)
+        videoView.requestFocus()
+        videoView.start()
+
+        videoView.setOnCompletionListener {
+            videoView.start()
+        }
+
     }
 }

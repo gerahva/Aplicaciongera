@@ -58,7 +58,7 @@
             android:background="@color/design_default_color_primary_dark"
             android:textColor="@android:color/background_light"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintHorizontal_bias="0.0"
-            android:fontFamily="@font/gabriela" android:textSize="18sp"/>
+            android:fontFamily="@font/adamina" android:textSize="14sp"/>
     <EditText
             android:layout_width="0dp"
             android:layout_height="49dp"

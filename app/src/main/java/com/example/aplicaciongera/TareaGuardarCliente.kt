@@ -29,7 +29,7 @@ class TareaGuardarCliente(private var ctx: Context?,
 
     override fun onPreExecute() {
         super.onPreExecute()
-        //GENERAMOS UN USUARIO
+        //GENERAMOS UN USUARIO quitarlos de aqui y ponerlo en menuactivity previo a invocar el excute
         cliente.ident=   activity?.txtident?.text.toString().toInt()
 
         cliente.nombre= activity?.txtnombre?.text.toString()

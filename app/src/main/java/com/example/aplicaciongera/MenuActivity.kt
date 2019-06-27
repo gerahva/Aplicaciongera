@@ -1,5 +1,6 @@
 package com.example.aplicaciongera
 
+import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
@@ -11,7 +12,9 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.Button
+import android.widget.LinearLayout
 import androidx.constraintlayout.widget.ConstraintLayout
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_menu.*
 import kotlinx.android.synthetic.main.app_bar_menu.*
 import kotlinx.android.synthetic.main.layout_guardar.*
@@ -19,7 +22,7 @@ import kotlinx.android.synthetic.main.layout_principal.*
 import kotlinx.android.synthetic.main.layout_actualizar.*
 import kotlinx.android.synthetic.main.layout_borrar.*
 import kotlinx.android.synthetic.main.layout_buscar.*
-import kotlinx.android.synthetic.main.layout_listahoteles.*
+import kotlinx.android.synthetic.main.activity_picasso.*
 
 
 class MenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -28,6 +31,12 @@ class MenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu)
         setSupportActionBar(toolbar)
+
+
+// Para inicializar el BOTON y empezar la carga de imagenes
+
+        buttonLoader.setOnClickListener { loadImages()}
+        Picasso.with(this).load("https://static.pexels.com/photos/288264/pexels-photo-288264.jpeg").fetch()
 
 
 
@@ -96,6 +105,21 @@ class MenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
 
     }
+// Para cargar las imagenes en la opción de Hoteles disponibles, se hace con Picasso
+
+    private fun loadImages(){
+
+        Picasso.with(this)
+            .load("https://static.pexels.com/photos/288264/pexels-photo-288264.jpeg")
+            .fit()
+            .into(imageViewTop)
+
+        Picasso.with(this)
+            .load("https://static.pexels.com/photos/288929/pexels-photo-288929.jpeg")
+            .fit()
+            .into(imageViewBottom)
+
+    }
 
     override fun onBackPressed() {
         if (drawer_layout.isDrawerOpen(GravityCompat.START)) {
@@ -144,10 +168,14 @@ class MenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
             }
 
-            R.id.nav_listahoteles->{
+            R.id.nav_picasso ->{
+
                 ocultarTodo()
 
-                layout_lista_hoteles.visibility=View.VISIBLE
+                activity_picasso.visibility=View.VISIBLE
+
+
+
             }
             /*
             R.id.nav_actualizar -> {
@@ -168,6 +196,7 @@ class MenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.nav_buscar -> {
                 ocultarTodo()
                 layout_buscar.visibility = View.VISIBLE
+                txtidentbuscar.text= null
                 txtNombreBuscar.text = null
                 txtmailbuscar.text = null
                 txtcallebuscar.text = null
@@ -206,8 +235,12 @@ class MenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         buscar_cliente.visibility = View.INVISIBLE
 
 
-        val lista_hoteles=layout_lista_hoteles as ConstraintLayout
-        lista_hoteles.visibility=View.INVISIBLE
+   val picaso=activity_picasso as LinearLayout
+        picaso.visibility=View.INVISIBLE
+
+
+        //val lista_hoteles=layout_lista_hoteles as ConstraintLayout
+        //lista_hoteles.visibility=View.INVISIBLE
     }
 
     override fun onPostResume() {

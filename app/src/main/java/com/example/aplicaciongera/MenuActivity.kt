@@ -23,6 +23,7 @@ import kotlinx.android.synthetic.main.layout_actualizar.*
 import kotlinx.android.synthetic.main.layout_borrar.*
 import kotlinx.android.synthetic.main.layout_buscar.*
 import kotlinx.android.synthetic.main.activity_picasso.*
+import kotlinx.android.synthetic.main.layout_comentarios.*
 
 
 class MenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -205,7 +206,15 @@ class MenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
 
             }
+            R.id.nav_comentarios ->{
 
+                ocultarTodo()
+
+                layout_comentarios.visibility=View.VISIBLE
+
+
+
+            }
         }
 
         drawer_layout.closeDrawer(GravityCompat.START)
@@ -234,6 +243,8 @@ class MenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         val buscar_cliente = layout_buscar as ConstraintLayout
         buscar_cliente.visibility = View.INVISIBLE
 
+        val comentarios = layout_comentarios as ConstraintLayout
+        comentarios.visibility = View.INVISIBLE
 
    val picaso=activity_picasso as LinearLayout
         picaso.visibility=View.INVISIBLE

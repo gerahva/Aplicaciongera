@@ -28,6 +28,7 @@
     <include layout="@layout/layout_borrar"/>
     <include layout="@layout/layout_buscar"/>
 	<include layout="@layout/activity_picasso"/>
+    <include layout="@layout/layout_comentarios"/>
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

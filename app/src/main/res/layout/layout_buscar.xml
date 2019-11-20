@@ -1,102 +1,151 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
-                                                   xmlns:tools="http://schemas.android.com/tools"
-                                                   android:orientation="vertical"
-                                                   android:layout_width="match_parent"
-                                                   android:layout_height="match_parent"
-                                                   android:id="@+id/layout_buscar"
-                                                   android:background="@drawable/buscar">
-
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/layout_buscar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/elguardar"
+        android:orientation="vertical">
+    
     <EditText
-            android:layout_width="395dp"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:ems="10"
             android:id="@+id/txtmunibuscar"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" android:textAlignment="center" android:visibility="invisible"
-            android:fontFamily="@font/gabriela" android:textColor="@android:color/background_light"
-            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/txtcpbuscar"/>
-    <EditText
             android:layout_width="395dp"
             android:layout_height="wrap_content"
-            android:inputType="number"
-            android:ems="10"
-            android:id="@+id/txtcpbuscar"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:textAlignment="center"
-            android:fontFamily="@font/gabriela"
-            android:textColor="@android:color/background_light" android:textSize="18sp"
             android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/txtcallebuscar" android:visibility="invisible"
-    />
-    <EditText
-            android:layout_width="395dp"
-            android:layout_height="wrap_content"
+            android:ems="10"
+            android:fontFamily="@font/gabriela"
             android:inputType="textPersonName"
-            android:ems="10"
-            android:id="@+id/txtcallebuscar"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" android:textAlignment="center" android:visibility="invisible"
-            android:fontFamily="@font/gabriela" android:textColor="@android:color/background_light"
-            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/txtmailbuscar"/>
-    <EditText
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:inputType="number"
-            android:ems="10"
-            android:id="@+id/txtidentbuscar"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
-            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="16dp"
             android:textAlignment="center"
-            android:fontFamily="@font/cinzel_decorative" android:hint="ESCRIBE EL ID A BUSCAR"
-            android:textColor="@android:color/background_dark" android:textSize="18sp"
-            android:visibility="visible" android:layout_marginTop="70dp" app:layout_constraintTop_toTopOf="parent"/>
-    <Button
-            android:text="BUSCAR POR ID"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/buscar" app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
-            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="16dp"
-            android:textAlignment="center"
-            android:textSize="14sp" android:fontFamily="@font/gabriela"
-            app:layout_constraintHorizontal_bias="1.0" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/txtmunibuscar"/>
-    <EditText
-            android:layout_width="395dp"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:ems="10"
-            android:id="@+id/txtNombreBuscar" android:layout_marginTop="20dp"
-            app:layout_constraintTop_toBottomOf="@+id/txtidentbuscar" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" android:textAlignment="center" android:visibility="invisible"
-            android:fontFamily="@font/gabriela" android:textColor="@android:color/background_light"/>
-    <EditText
-            android:layout_width="395dp"
-            android:layout_height="wrap_content"
-            android:inputType="textEmailAddress"
-            android:ems="10"
-            android:id="@+id/txtmailbuscar"
-            app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/txtNombreBuscar"
-            android:textAlignment="center" android:fontFamily="@font/gabriela"
-            android:textColor="@android:color/background_light" android:visibility="invisible"/>
-    <Button
-            android:text="Borrar cliente"
-            android:layout_width="120dp"
-            android:layout_height="51dp"
-            android:id="@+id/botonBorrar" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginStart="16dp" android:layout_marginBottom="39dp"
-            android:clickable="false"/>
-    <Button
-            android:text="Actualizar cliente"
-            android:layout_width="120dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/botonActualizar"
+            android:textColor="@android:color/background_light"
+            android:visibility="invisible"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginBottom="39dp" app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginEnd="16dp" android:clickable="false"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtcpbuscar" />
+    
+    <EditText
+            android:id="@+id/txtcpbuscar"
+            android:layout_width="395dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:ems="10"
+            android:fontFamily="@font/gabriela"
+            android:inputType="number"
+            android:textAlignment="center"
+            android:textColor="@android:color/background_light"
+            android:textSize="18sp"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtcallebuscar" />
+    
+    <EditText
+            android:id="@+id/txtcallebuscar"
+            android:layout_width="395dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:ems="10"
+            android:fontFamily="@font/gabriela"
+            android:inputType="textPersonName"
+            android:textAlignment="center"
+            android:textColor="@android:color/background_light"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtmailbuscar" />
+    
+    <EditText
+            android:id="@+id/txtidentbuscar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="70dp"
+            android:layout_marginEnd="16dp"
+            android:ems="10"
+            android:fontFamily="@font/cinzel_decorative"
+            android:hint="ESCRIBE EL ID A BUSCAR"
+            android:inputType="number"
+            android:textAlignment="center"
+            android:textColor="@android:color/background_dark"
+            android:textSize="18sp"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    
+    <Button
+            android:id="@+id/buscar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="80dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="80dp"
+            android:fontFamily="@font/quicksand_light"
+            android:text="BUSCAR POR ID"
+            android:textAlignment="center"
+            android:textColor="#0A0A0A"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtmunibuscar" />
+    
+    <EditText
+            android:id="@+id/txtNombreBuscar"
+            android:layout_width="395dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:fontFamily="@font/gabriela"
+            android:inputType="textPersonName"
+            android:textAlignment="center"
+            android:textColor="@android:color/background_light"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtidentbuscar" />
+    
+    <EditText
+            android:id="@+id/txtmailbuscar"
+            android:layout_width="395dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:ems="10"
+            android:fontFamily="@font/gabriela"
+            android:inputType="textEmailAddress"
+            android:textAlignment="center"
+            android:textColor="@android:color/background_light"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtNombreBuscar" />
+    
+    <Button
+            android:id="@+id/botonBorrar"
+            android:layout_width="130dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="39dp"
+            android:clickable="false"
+            android:fontFamily="@font/quicksand_light"
+            android:text="Borrar cliente"
+            android:textColor="#0C0C0C"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    
+    <Button
+            android:id="@+id/botonActualizar"
+            android:layout_width="130dp"
+            android:layout_height="60dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="39dp"
+            android:clickable="false"
+            android:fontFamily="@font/quicksand_light"
+            android:text="Actualizar cliente"
+            android:textColor="#131313"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

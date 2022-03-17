@@ -34,7 +34,7 @@
     />
     <Button
             android:text="ACTUALIZAR CLIENTE"
-            android:drawableLeft="@drawable/ic_backup_black_48dp"
+           
             android:layout_width="0dp"
             android:layout_height="31dp"
             android:id="@+id/actualizar"

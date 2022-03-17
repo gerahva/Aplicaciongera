@@ -21,7 +21,7 @@
             android:fontFamily="@font/cinzel_decorative" android:hint="ESCRIBE EL ID A BORRAR"/>
     <Button
             android:text="BORRAR CLIENTE"
-            android:drawableLeft="@drawable/ic_sentiment_very_dissatisfied_black_24dp"
+        
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:id="@+id/borrar"
@@ -86,7 +86,7 @@
             android:textStyle="bold"/>
     <Button
             android:text="BUSCAR CLIENTE"
-            android:drawableLeft="@drawable/ic_pets_pink_400_24dp"
+         
             android:layout_width="0dp"
             android:layout_height="41dp"
             android:id="@+id/botonBuscarBorrar" android:layout_marginBottom="16dp"
